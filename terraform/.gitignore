@@ -1,0 +1,6 @@
+deploy/dist
+environments/
+.terraform
+.tfstate
+.terraform.*
+plan.out
