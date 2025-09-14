@@ -6,10 +6,11 @@ This is a learning project to:
 - Connect a producer to kafka
 - Set up DRY terraform modules to recycle in future projects
 - Expose a lambda function to track sessions on webpage
+- Connect a consumer to kafka
 
 TODO
 
-- Connect a consumer to kafka
+- Do something interesting with the kafka consumer
 - Add automation for the tf builds, cargo builds, and kafka server setup via GHA
 
 
@@ -63,11 +64,19 @@ This will:
 - Initialize Terraform for Lambda
 - Plan and apply the infrastructure using your environment configs
 
-### 6. Additional Notes
+### 5. Kafka Consumer App
+
+```sh
+bash setup-consumer.sh brokers=<BROKER_IP>:9092 server=<USER>@<SERVER_IP> topic=<TOPIC_NAME> group_id=<GROUP_ID>
+```
+This will:
+- Build the Java-based kafka-consumer application as a docker package
+- Push the docker image to a server 
+- Start the app via Docker Compose
+
+
+### Additional Notes
 
 - Make sure your AWS credentials are configured if deploying to AWS.
 - For troubleshooting, check the output of each script and Terraform logs.
 
-## License
-
-See [LICENSE](LICENSE) for details.
